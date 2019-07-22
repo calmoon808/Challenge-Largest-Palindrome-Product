@@ -11,9 +11,33 @@ module.exports = function(digits){
   var palindromeNumber = 0;
 
   // do your work here
-
-
-
+  let num = Math.pow(10, digits);
+  for (let i = 0; i < num; i++){
+    for (let j = 0; j < num; j++){
+      let product = i * j;
+      let compareNum = Array.from(product.toString()).map(Number);
+      let limit = Math.floor(compareNum.length / 2);
+      let count = 0
+      let isSame = false;
+      while (count !== limit){
+        if (compareNum[count] === compareNum[compareNum.length - (count + 1)]){
+          isSame = true;
+          count++;
+        } else {
+          isSame = false;
+          count = limit;
+        }
+      }
+      if (isSame){
+        compareNum = parseInt(compareNum.join(''));
+        factor_0 = i;
+        factor_1 = j;
+        if (compareNum > palindromeNumber){
+          palindromeNumber = compareNum;
+        }
+      }
+    }
+  }
   return {
     factor_0 : factor_0,
     factor_1 : factor_1,
