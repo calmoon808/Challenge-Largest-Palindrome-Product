@@ -29,7 +29,7 @@ module.exports = function(digits){
         }
       }
       if (isSame){
-        compareNum = compareNum.join('') * 1;
+        compareNum = parseInt(compareNum.join(''));
         factor_0 = i;
         factor_1 = j;
         if (compareNum > palindromeNumber){
